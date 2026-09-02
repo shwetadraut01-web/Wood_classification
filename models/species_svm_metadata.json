@@ -1,0 +1,182 @@
+{
+  "model_name": "Wood Species Baseline SVM Classifier",
+  "model_type": "Support Vector Machine (SVC)",
+  "pipeline_stages": [
+    "StandardScaler",
+    "SVC"
+  ],
+  "hyperparameter_search_method": "Manual hyperparameter search using the validation set",
+  "kernel": "rbf",
+  "selected_C": 100.0,
+  "selected_gamma": 0.1,
+  "class_weight": "balanced",
+  "random_seed": 42,
+  "feature_count": 24,
+  "feature_names": [
+    "glcm_contrast_mean",
+    "glcm_contrast_std",
+    "glcm_correlation_mean",
+    "glcm_correlation_std",
+    "glcm_energy_mean",
+    "glcm_energy_std",
+    "glcm_homogeneity_mean",
+    "glcm_homogeneity_std",
+    "lbp_histogram_mean",
+    "lbp_histogram_std",
+    "lbp_histogram_entropy",
+    "lbp_histogram_energy",
+    "lbp_uniform_ratio",
+    "lbp_non_uniform_ratio",
+    "lbp_bin_0",
+    "lbp_bin_1",
+    "lbp_bin_2",
+    "lbp_bin_3",
+    "lbp_bin_4",
+    "lbp_bin_5",
+    "lbp_bin_6",
+    "lbp_bin_7",
+    "lbp_bin_8",
+    "lbp_bin_9"
+  ],
+  "glcm_config": {
+    "distances_px": [
+      1,
+      3,
+      5
+    ],
+    "angles_deg": [
+      0,
+      45,
+      90,
+      135
+    ],
+    "quantization_levels": 256,
+    "properties_extracted": [
+      "contrast",
+      "correlation",
+      "energy",
+      "homogeneity"
+    ],
+    "aggregations": [
+      "mean",
+      "std"
+    ]
+  },
+  "lbp_config": {
+    "radius": 1,
+    "points": 8,
+    "method": "uniform",
+    "num_bins": 10,
+    "statistical_moments": [
+      "mean",
+      "std",
+      "entropy",
+      "energy",
+      "uniform_ratio",
+      "non_uniform_ratio"
+    ]
+  },
+  "class_names": [
+    "oak",
+    "pine",
+    "walnut",
+    "sheesham",
+    "mahogany"
+  ],
+  "train_image_count": 1153,
+  "validation_image_count": 247,
+  "test_image_count": 248,
+  "validation_metrics": {
+    "accuracy": 0.9838056680161943,
+    "macro_precision": 0.9867155067155068,
+    "macro_recall": 0.9852323232323232,
+    "macro_f1": 0.9858618771861591,
+    "weighted_f1": 0.9838248302110795,
+    "confusion_matrix": [
+      [
+        89,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        48,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        43,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        16,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        47
+      ]
+    ]
+  },
+  "test_metrics": {
+    "accuracy": 0.9596774193548387,
+    "macro_precision": 0.965836410780231,
+    "macro_recall": 0.9671111111111111,
+    "macro_f1": 0.9663706597446587,
+    "weighted_f1": 0.9595756055595702,
+    "confusion_matrix": [
+      [
+        85,
+        3,
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        49,
+        1,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        41,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        16,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        47
+      ]
+    ]
+  },
+  "scientific_notices": [
+    "Oak, Pine, and Walnut originate from WOOD-AUTH, while Sheesham and Mahogany originate from GOIMAI. Therefore species and dataset source are currently confounded. Model performance may partly reflect dataset/capture differences rather than wood-species characteristics. Additional cross-source data is recommended before claiming strong real-world generalization.",
+    "Leakage prevention is guaranteed at the image/file level; specimen-level leakage cannot be verified from the available metadata.",
+    "This is a classical handcrafted feature baseline to benchmark GLCM+LBP separability; it is not a production-ready system."
+  ]
+}

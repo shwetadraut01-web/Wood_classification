@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# macOS
+.DS_Store
+
+# Large datasets
+data/Wood\ Dataset.zip
+data/wood_species/raw/
+data/wood_species/processed/
+data/wood_species/splits/
+
+# Generated feature caches
+data/wood_species/metadata/*cache*.npz
+
+# Model artifacts
+models/*.joblib
+
+# IDE/editor
+.vscode/
+.idea/
+
+# Dataset archives
+data/*.zip
+
+data/Wood Dataset/
